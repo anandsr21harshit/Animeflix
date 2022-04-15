@@ -1,0 +1,57 @@
+.landing-container{
+    background-image: linear-gradient(to right,#000 40%, transparent 50%), url("https://res.cloudinary.com/mranand/image/upload/v1650016896/mypics/anime-background_h1jtaq.jpg");
+    height: 89vh;
+    background-size: cover;
+    color: var(--text-primary);
+    position: relative;
+    top: 5rem;
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.landing-content{
+    position: absolute;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
+    letter-spacing: 0.1rem;
+}
+
+.landing-content h1{
+    font-size: 2.8rem;
+}
+
+.landing-content p{
+    font-size: 1.5rem;
+}
+
+@media screen and (max-width: 1200px) {
+    .landing-container{
+        background-image: linear-gradient(to top,#000 40%, transparent 50%), url("https://res.cloudinary.com/mranand/image/upload/v1650016896/mypics/anime-background_h1jtaq.jpg");
+        justify-content: center;
+    }
+    .landing-content{
+        top: 65%;
+    }
+}
+
+@media screen and (max-width:600px) {
+    .landing-content h1{
+        font-size: 2rem;
+    }
+    .landing-content p {
+        font-size: 1rem;
+    }
+}
+
+@media screen and (max-width: 420px) {
+    .landing-content h1{
+        font-size: 1.5rem;
+    }
+    .landing-content p {
+        font-size: 0.8rem;
+    }
+}
