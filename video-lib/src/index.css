@@ -1,6 +1,7 @@
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css");
 :root{
   --primary-bg-color: #0f171e;
-  --secondar-bg-color:#343a40;
+  --secondary-bg-color:#343a40;
   --text-primary: #ffffff;
   --text-secondary: rgba(242,244,246,.9);
   --btn-cta: #e50913;
