@@ -1,10 +1,10 @@
 .landing-container{
     background-image: linear-gradient(to right,#000 40%, transparent 50%), url("https://res.cloudinary.com/mranand/image/upload/v1650016896/mypics/anime-background_h1jtaq.jpg");
-    height: 89vh;
+    height: calc(100vh - 6rem);
     background-size: cover;
     color: var(--text-primary);
-    position: relative;
-    top: 5rem;
+    /* position: relative;
+    top: 5rem; */
     width: 100%;
     display: flex;
     align-items: center;
@@ -47,9 +47,9 @@
     }
 }
 
-@media screen and (max-width: 420px) {
+@media screen and (max-width: 450px) {
     .landing-content h1{
-        font-size: 1.5rem;
+        font-size: 1.2rem;
     }
     .landing-content p {
         font-size: 0.8rem;
