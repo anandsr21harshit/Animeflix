@@ -16,7 +16,7 @@ function VideoCard({
            </div>
            <div className="video-header">
                <p className='video-title'>{title}</p>
-               <i class="bi bi-three-dots-vertical"></i>
+               <i className="bi bi-three-dots-vertical"></i>
            </div>
            <div className="video-footer">
                <p className="video-category">{category}</p>
