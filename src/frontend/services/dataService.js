@@ -11,4 +11,15 @@ async function getVideos(){
     }
 }
 
-export {getVideos}
+async function getCategories(){
+    try{
+        const response = await axios.get("/api/categories");
+
+        if(response.status === 200) return response.data;
+    }
+    catch(error){
+        console.error(error.response);
+    }
+}
+
+export {getVideos,getCategories}
