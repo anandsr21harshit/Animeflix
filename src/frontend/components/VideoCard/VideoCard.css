@@ -12,7 +12,7 @@
 .video-img-container {
     height: 65%;
     position: relative;
-    width: 100%;
+    width: 100%; 
 }
 .video-thumbnail {
     border-top-left-radius: 0.6rem;
@@ -24,14 +24,18 @@
 
 .video-header{
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   padding: 0.5rem 1rem;
-  font-size: 1.1rem;
+  font-size: 1rem;
+}
+
+.video-footer{
+  padding: 0 1rem;
 }
 
 .video-category{
-  padding: 0 1rem;
   color: var(--text-secondary);
+  font-size: 0.9rem;
 }
 
 .no-text-decoration{
