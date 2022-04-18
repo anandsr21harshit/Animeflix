@@ -1,11 +1,13 @@
 import { createContext, useContext, useEffect, useReducer } from "react";
-import { getVideos } from "../services/dataService";
+import { getCategories, getVideos } from "../services/dataService";
 import { reducer } from "../reducer/reducer";
 
 const DataContext = createContext();
 
 const initialState = {
   videos: [],
+  categories:[],
+  category: "All"    // for filtering
 };
 
 const DataProvider = ({ children }) => {
@@ -15,6 +17,9 @@ const DataProvider = ({ children }) => {
     async function fetchData () {
         const videoResponse = await getVideos();
         dispatch({ type: "SET_VIDEOS", payload: videoResponse.videos });
+        
+        const categoryResponse = await getCategories();
+        dispatch({type: "SET_CATEGORIES", payload: categoryResponse.categories});
     }
     fetchData();
   },[])
