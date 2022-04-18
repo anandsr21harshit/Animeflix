@@ -7,5 +7,17 @@ export const reducer = (state, action) => {
                 ...state,
                 videos: payload
             }
+        case "SET_CATEGORIES":
+            return {
+                ...state,
+                categories: payload
+            }
+        case "SET_CATEGORY":
+            return {
+                ...state,
+                category: payload
+            }
+        default:
+            return state;
     }
 }
