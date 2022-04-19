@@ -10,7 +10,7 @@ function VideoCard({
 }) {
   return (
     <div className='video-card'>
-       <Link to={"#"} className="no-text-decoration">
+       <Link to={`/home/${_id}`} className="no-text-decoration">
            <div className="video-img-container">
                <img src={`https://i.ytimg.com/vi/${_id}/hqdefault.jpg`} alt="Video Thumbnail" className='video-thumbnail' />
            </div>

@@ -8,7 +8,7 @@ function SideBar() {
       <aside className="side-bar">
         <ul className="list-container">
           <li className="side-bar-items">
-            <Link to={"#"} className="text-link">
+            <Link to={"/home"} className="text-link">
               <i className="bi bi-house-door-fill"></i>Home
             </Link>
           </li>
