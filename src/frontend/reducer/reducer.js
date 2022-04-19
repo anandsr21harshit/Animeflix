@@ -1,4 +1,4 @@
-export const reducer = (state, action) => {
+export const dataReducer = (state, action) => {
     const {type, payload} = action;
 
     switch(type){

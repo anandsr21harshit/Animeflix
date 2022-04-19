@@ -1,6 +1,6 @@
 import { createContext, useContext, useEffect, useReducer } from "react";
 import { getCategories, getVideos } from "../services/dataService";
-import { reducer } from "../reducer/reducer";
+import { dataReducer } from "../reducer/reducer";
 
 const DataContext = createContext();
 
@@ -11,7 +11,7 @@ const initialState = {
 };
 
 const DataProvider = ({ children }) => {
-  const [state, dispatch] = useReducer(reducer, initialState);
+  const [state, dispatch] = useReducer(dataReducer, initialState);
 
   useEffect(()=> {
     async function fetchData () {
