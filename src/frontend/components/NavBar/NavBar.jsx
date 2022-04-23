@@ -1,8 +1,10 @@
 import React from "react";
 import "./NavBar.css";
 import { Link } from "react-router-dom";
+import { useAuth } from "../../context/auth-context";
 
 function NavBar() {
+  const {token} = useAuth()
   return (
     <header className="header-nav">
       <nav className="nav-bar">
@@ -16,7 +18,8 @@ function NavBar() {
         </Link>
         <ul className="menus">
           <li className="menu">
-            <a href="#">Sign In</a>
+            {!token && <Link to={"/login"}> <button className="btn btn-primary nav-btn">Login</button> </Link>}
+            {token && <i className="bi bi-person-circle"></i>}
           </li>
         </ul>
       </nav>
