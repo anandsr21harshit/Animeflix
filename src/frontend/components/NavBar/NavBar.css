@@ -9,6 +9,18 @@
     border-radius: 0;
 }
 
+.bi-person-circle{
+   font-size: 2rem;
+}
+
+.bi-person-circle:hover{
+    cursor: pointer;
+}
+
+.nav-btn{
+    background-color: var(--btn-cta);
+}
+
 @media screen and (max-width: 420px){
     .nav-brand img {
         height: 2.5rem;
