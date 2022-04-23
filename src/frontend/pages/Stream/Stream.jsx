@@ -43,4 +43,4 @@ function Stream() {
   );
 }
 
-export default Stream;
+export {Stream};
