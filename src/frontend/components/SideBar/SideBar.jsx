@@ -13,22 +13,22 @@ function SideBar() {
             </Link>
           </li>
           <li className="side-bar-items">
-            <Link to={"#"} className="text-link">
+            <Link to={"/playlist"} className="text-link">
               <i className="bi bi-collection-play-fill"></i> PlayList{" "}
             </Link>
           </li>
           <li className="side-bar-items">
-            <Link to={"#"} className="text-link">
+            <Link to={"/history"} className="text-link">
             <i className="bi bi-clock-history"></i>History
             </Link>
           </li>
           <li className="side-bar-items">
-            <Link to={"#"} className="text-link">
+            <Link to={"/like"} className="text-link">
               <i className="bi bi-hand-thumbs-up-fill"></i>Liked Videos
             </Link>
           </li>
           <li className="side-bar-items">
-            <Link to={"#"} className="text-link">
+            <Link to={"/watchlater"} className="text-link">
               <i className="bi bi-clock-fill"></i>Watch Later
             </Link>
           </li>

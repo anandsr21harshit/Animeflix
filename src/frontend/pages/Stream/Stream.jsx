@@ -16,7 +16,6 @@ function Stream() {
   }
 
   const playingVideo = findVideo(videoID);
-  console.log(playingVideo)
 
   return (
     <main className="stream-container">
@@ -30,7 +29,8 @@ function Stream() {
               width="100%"
             ></ReactPlayer>
             <div className="video-description">
-                <h3>{playingVideo.title}</h3>
+            {/* using option chaining so that it will not throw error while re-rendering until data is fetched */}
+                <h3>{playingVideo?.title}</h3> 
                 <div className="video-options">
                     <span><i className="bi bi-hand-thumbs-up-fill"></i>Like</span>
                     <span><i className="bi bi-music-note-list"></i>Add to Playlist</span>
@@ -43,4 +43,4 @@ function Stream() {
   );
 }
 
-export default Stream;
+export {Stream};
