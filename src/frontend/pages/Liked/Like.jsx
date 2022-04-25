@@ -12,7 +12,7 @@ function Like() {
     <div className="like-page-container">
       <SideBar></SideBar>
       <div className="video-wrapper">
-        {likedVideos.length == 0 && <h1>Playlist is empty</h1>}
+        {likedVideos.length === 0 && <h1>Playlist is empty</h1>}
         {likedVideos.length > 0 &&
           likedVideos.map((video) => {
             return <VideoCard {...video} key={video._id} />;
