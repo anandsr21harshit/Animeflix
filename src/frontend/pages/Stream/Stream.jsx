@@ -23,18 +23,14 @@ function Stream() {
   function likeHandler() {
     if (token) {
       if (state.likedVideos.some((video) => video._id === videoID)) {
-        console.log("disliked");
         deleteFromLikedVideos(playingVideo);
       } else {
-        console.log("liked");
         addToLikedVideos(playingVideo);
       }
     } else {
       navigate("/login");
     }
   }
-
-  console.log(state.likedVideos);
 
   return (
     <main className="stream-container">
