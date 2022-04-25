@@ -23,7 +23,7 @@ function SideBar() {
             </Link>
           </li>
           <li className="side-bar-items">
-            <Link to={"/like"} className="text-link">
+            <Link to={"/liked"} className="text-link">
               <i className="bi bi-hand-thumbs-up-fill"></i>Liked Videos
             </Link>
           </li>
@@ -38,19 +38,19 @@ function SideBar() {
       {/* Mobile Navigation */}
 
       <nav className="mobile-nav">
-        <Link to={"#"} className="mobile-nav-link">
+        <Link to={"/home"} className="mobile-nav-link">
           <i className="bi bi-house-door-fill"></i>
           <span>Home</span>
         </Link>
-        <Link to={"#"} className="mobile-nav-link">
+        <Link to={"/playlist"} className="mobile-nav-link">
           <i className="bi bi-collection-play-fill"></i>
           <span>Playlist</span>
         </Link>
-        <Link to={"#"} className="mobile-nav-link">
+        <Link to={"/liked"} className="mobile-nav-link">
           <i className="bi bi-hand-thumbs-up-fill"></i>
           <span>Liked Videos</span>
         </Link>
-        <Link to={"#"} className="mobile-nav-link">
+        <Link to={"/watchlater"} className="mobile-nav-link">
           <i className="bi bi-clock-fill"></i>
           <span>Watch Later</span>
         </Link>
