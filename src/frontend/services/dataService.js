@@ -20,16 +20,4 @@ async function getCategories() {
   }
 }
 
-// async function addToLikedVideos(encodedToken, video) {
-//   return axios.post(
-//     "/api/user/likes",
-//     { video },
-//     {
-//       headers: {
-//         authorization: encodedToken,
-//       },
-//     }
-//   );
-// }
-
 export { getVideos, getCategories };
