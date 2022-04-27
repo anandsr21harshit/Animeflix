@@ -17,6 +17,11 @@ export const dataReducer = (state, action) => {
                 ...state,
                 category: payload
             }
+        case "SET_LIKED_VIDEOS":
+            return {
+                ...state,
+                likedVideos: payload
+            }
         default:
             return state;
     }

@@ -34,6 +34,15 @@
     min-width: 15rem;
 }
 
+.video-options span:hover{
+    cursor: pointer;
+}
+
+.fill-cta{
+    color: var(--btn-cta);
+    font-weight: bold;
+}
+
 @media screen and (max-width:1100px){
     .player-card{
         width: 80%;
