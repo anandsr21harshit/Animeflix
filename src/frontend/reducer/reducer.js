@@ -22,6 +22,11 @@ export const dataReducer = (state, action) => {
                 ...state,
                 likedVideos: payload
             }
+        case "SET_HISTORY":
+            return{
+                ...state,
+               history: payload
+            }
         default:
             return state;
     }
