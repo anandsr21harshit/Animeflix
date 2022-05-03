@@ -1,0 +1,28 @@
+.history-page-container{
+    min-height: calc(100vh - 6rem);
+    background-color: var(--secondary-bg-color);
+    display: flex;
+    position: relative;
+}
+
+.history-video-wrapper{
+    display: flex;
+    width: 100%;
+    margin: 5rem 2rem 2rem 15rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+
+.history-btn {
+    position: absolute;
+    left: calc(100vw - 10rem);
+    top: 1rem;
+    background-color: var(--btn-cta);
+}
+
+@media screen and (max-width: 800px) {
+    .history-video-wrapper{
+        margin: 5rem auto;
+    }
+}
