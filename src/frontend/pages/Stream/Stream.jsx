@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import SideBar from "../../components/SideBar/SideBar";
 import ReactPlayer from "react-player";
 import "./Stream.css";
@@ -9,7 +9,7 @@ import { useAuth } from "../../context/auth-context.js";
 function Stream() {
   const { videoID } = useParams();
   const navigate = useNavigate();
-  const { state, addToLikedVideos, deleteFromLikedVideos } = useData();
+  const { state, addToLikedVideos,addToHistory, deleteFromLikedVideos } = useData();
   const { videos } = state;
   const { token } = useAuth();
 
@@ -32,6 +32,14 @@ function Stream() {
     }
   }
 
+  function historyHandler(){
+    if(token){
+      if(!state.history.some(video => video._id === videoID)){
+        addToHistory(playingVideo);
+      }
+    }
+  }
+
   return (
     <main className="stream-container">
       <SideBar />
@@ -42,6 +50,7 @@ function Stream() {
               url={`https://www.youtube.com/watch?v=${videoID}`}
               controls={true}
               width="100%"
+              onStart={historyHandler}
             ></ReactPlayer>
             <div className="video-description">
               {/* using option chaining so that it will not throw error while re-rendering until data is fetched */}

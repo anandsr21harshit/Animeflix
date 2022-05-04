@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import { useAuth } from "../../context/auth-context";
 import "./Login.css";
 
 function Login() {
 
     const {loginHandler, token} = useAuth();
+    const location = useLocation();
     const navigate = useNavigate();
 
   const [userDetails, setUserDetails] = useState({
@@ -28,10 +29,10 @@ function Login() {
   useEffect(()=>{
     if(token){
         setTimeout(()=>{
-            navigate("/home")
-        },1000)
+            navigate(location.state?.from?.pathname || "/home",{replace:true})
+        },1000);
     }
-  },[token])
+  },[token,navigate])
 
   return (
     <div className="login-container">
