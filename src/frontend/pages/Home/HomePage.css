@@ -42,7 +42,7 @@
 }
 
 .video-container{
-    margin: 1rem 2rem 1rem 15rem;
+    margin: 1rem 2rem 10rem 15rem;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
