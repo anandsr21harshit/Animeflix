@@ -1,5 +1,5 @@
 import React from 'react'
-import "./CustomModa.css"
+import "./CustomModal.css"
 
 function CustomModal() {
   return (
