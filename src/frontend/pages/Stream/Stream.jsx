@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import SideBar from "../../components/SideBar/SideBar";
 import ReactPlayer from "react-player";
 import "./Stream.css";
