@@ -27,6 +27,11 @@ export const dataReducer = (state, action) => {
                 ...state,
                history: payload
             }
+        case "SET_WATCH_LATER":
+            return {
+                ...state,
+                watchlater: payload
+            }
         default:
             return state;
     }
