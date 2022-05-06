@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { useData } from "../../context/data-context";
+import CustomModal from "../CustomModal/CustomModal";
 import "./VideoCard.css";
 
 function VideoCard({ _id, title, videoUrl, category }) {
-
   const location = useLocation();
   const [trash, setTrash] = useState(false);
-  const {deleteFromHistory} = useData();
+  const {deleteFromHistory } = useData();
+  const [showModal,setShowModal] = useState(false);
 
   useEffect(() => {
     if (location.pathname === "/history") {
@@ -15,7 +16,7 @@ function VideoCard({ _id, title, videoUrl, category }) {
     }
   }, []);
 
-  function deleteHandler(id){
+  function deleteHandler(id) {
     deleteFromHistory(id);
   }
 
@@ -31,15 +32,23 @@ function VideoCard({ _id, title, videoUrl, category }) {
         </div>
         <div className="video-header">
           <p className="video-title">{title}</p>
-          {!trash && <i className="bi bi-three-dots-vertical"></i>}
+          {!trash && (
+            <i
+              className="bi bi-three-dots-vertical"
+              onClick={(e) => {
+                  e.preventDefault();
+                  setShowModal(!showModal)
+                }}
+            ></i>
+          )}
           {trash && (
             <i
               title="Delete from history"
               className="bi bi-trash-fill"
-              onClick={(e)=>{
-                  e.preventDefault();
-                  deleteHandler(_id);
-                }}
+              onClick={(e) => {
+                e.preventDefault();
+                deleteHandler(_id);
+              }}
             ></i>
           )}
         </div>
@@ -47,6 +56,7 @@ function VideoCard({ _id, title, videoUrl, category }) {
           <p className="video-category">{category}</p>
         </div>
       </Link>
+      {showModal && <CustomModal key={_id} />}
     </div>
   );
 }
