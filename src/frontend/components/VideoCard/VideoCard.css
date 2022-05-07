@@ -42,6 +42,39 @@
   text-decoration: none;
 }
 
+.ReactModal__Content{
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.ReactModal__Content button{
+  width: 100%;
+  background-color: var(--btn-cta);
+}
+
+.ReactModal__Content section{
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.ReactModal__Content main{
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.ReactModal__Content input{
+  color: var(--primary-bg-color);
+}
+
+.modal-header{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
 
 /* Media Query  */
 
