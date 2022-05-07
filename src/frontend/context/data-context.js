@@ -12,6 +12,7 @@ const initialState = {
   category: "All", // for filtering
   likedVideos: [],
   history: [],
+  watchlater: []
 };
 
 const DataProvider = ({ children }) => {
@@ -103,31 +104,67 @@ const DataProvider = ({ children }) => {
           authorization: token,
         },
       });
-      if(response.status === 200){
+      if (response.status === 200) {
         dispatch({
           type: "SET_HISTORY",
           payload: response.data.history,
-        })
+        });
       }
     } catch (error) {
       console.error(error.response);
     }
   }
 
-  async function deleteAllFromHistory(videoID){
+  async function deleteAllFromHistory(videoID) {
     try {
       const response = await axios.delete(`/api/user/history/all`, {
         headers: {
           authorization: token,
         },
       });
-      if(response.status === 200){
+      if (response.status === 200) {
         dispatch({
           type: "SET_HISTORY",
           payload: response.data.history,
-        })
+        });
       }
     } catch (error) {
+      console.error(error.response);
+    }
+  }
+
+  async function addToWatchLater(video) {
+    try {
+      const response = await axios.post(
+        "/api/user/watchlater",
+        { video },
+        {
+          headers: {
+            authorization: token,
+          },
+        }
+      );
+      if(response.status === 201){
+        dispatch({type:"SET_WATCH_LATER", payload: response.data.watchlater})
+      }
+    } catch(error) {
+      console.error(error.response);
+    }
+  }
+
+  async function removeFromWatchLater(videoID){
+    try{
+      const response = await axios.delete(`/api/user/watchlater/${videoID}`,{
+        headers: {
+          authorization: token
+        }
+      })
+
+      if(response.status === 200){
+        dispatch({type:"SET_WATCH_LATER", payload: response.data.watchlater})
+      }
+    }
+    catch(error){
       console.error(error.response);
     }
   }
@@ -141,7 +178,9 @@ const DataProvider = ({ children }) => {
         deleteFromLikedVideos,
         addToHistory,
         deleteFromHistory,
-        deleteAllFromHistory
+        deleteAllFromHistory,
+        addToWatchLater,
+        removeFromWatchLater
       }}
     >
       {children}

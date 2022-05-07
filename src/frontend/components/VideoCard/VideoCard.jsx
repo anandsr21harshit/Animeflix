@@ -8,7 +8,7 @@ function VideoCard({ _id, title, videoUrl, category }) {
   const location = useLocation();
   const [trash, setTrash] = useState(false);
   const {deleteFromHistory } = useData();
-  const [showModal,setShowModal] = useState(false);
+  const [showModal, setShowModal] = useState(false);
 
   useEffect(() => {
     if (location.pathname === "/history") {
@@ -36,9 +36,9 @@ function VideoCard({ _id, title, videoUrl, category }) {
             <i
               className="bi bi-three-dots-vertical"
               onClick={(e) => {
-                  e.preventDefault();
-                  setShowModal(!showModal)
-                }}
+                e.preventDefault(); // so that link will not work on click will work
+                setShowModal(!showModal);
+              }}
             ></i>
           )}
           {trash && (
@@ -56,7 +56,14 @@ function VideoCard({ _id, title, videoUrl, category }) {
           <p className="video-category">{category}</p>
         </div>
       </Link>
-      {showModal && <CustomModal key={_id} />}
+      {showModal && (
+        <CustomModal
+          videoID={_id}
+          key={_id}
+          showModal={showModal}
+          setShowModal={setShowModal}
+        />
+      )}
     </div>
   );
 }
