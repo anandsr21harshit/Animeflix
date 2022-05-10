@@ -37,7 +37,7 @@ function VideoCard({ _id, title, videoUrl, category }) {
   }
 
   function addVideoToPlaylistHandler(video,playlist){
-   isVideoInPlaylist(playlist) ? console.error("Already added") : addVideoToPlaylist(video,playlist._id);
+   isVideoInPlaylist(playlist) ? deleteVideoFromPlaylist(video._id,playlist._id) : addVideoToPlaylist(video,playlist._id);
   }
 
   function createPlaylistHandler(playlistName) {
