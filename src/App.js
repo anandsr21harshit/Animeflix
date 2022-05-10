@@ -10,11 +10,12 @@ import {
   Like,
   Watchlater,
   Profile,
+  SinglePlaylist,
+  NotFound
 } from "./frontend/pages";
 import { Route, Routes } from "react-router-dom";
 import { useAuth } from "./frontend/context/auth-context";
 import RequiresAuth from "./frontend/components/RequiresAuth";
-import { NotFound } from "./frontend/pages/NotFound/NotFound";
 
 function App() {
   const { token } = useAuth();
@@ -29,6 +30,14 @@ function App() {
           element={
             <RequiresAuth token={token}>
               <Playlist />
+            </RequiresAuth>
+          }
+        ></Route>
+        <Route
+          path="/playlist/:playlistID"
+          element={
+            <RequiresAuth token={token}>
+              <SinglePlaylist />
             </RequiresAuth>
           }
         ></Route>
