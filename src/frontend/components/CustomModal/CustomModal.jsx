@@ -4,7 +4,7 @@ import { useAuth } from "../../context/auth-context";
 import { useData } from "../../context/data-context";
 import "./CustomModal.css";
 
-function CustomModal({ videoID,setShowModal }) {
+function CustomModal({ videoID,setShowModal, setReactModal }) {
   const {
     state,
     addToWatchLater,
@@ -31,6 +31,7 @@ function CustomModal({ videoID,setShowModal }) {
   }
 
   return (
+    <>
     <ul className="custom-modal">
       <li
         className="modal-item"
@@ -43,10 +44,19 @@ function CustomModal({ videoID,setShowModal }) {
         {!inWatchLater && <p>Watch Later</p>}
         {inWatchLater && <p>Remove from Watch Later</p>}
       </li>
-      <li className="modal-item">
+      <li className="modal-item" onClick={()=>{
+        if(token){
+          setShowModal(false)
+          setReactModal(true)
+        }
+        else{
+          navigate("/login");
+        }
+        }}>
         <i className="bi bi-collection-play-fill"></i>Add to playlist
       </li>
     </ul>
+    </>
   );
 }
 
