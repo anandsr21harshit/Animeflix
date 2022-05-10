@@ -1,13 +1,11 @@
-import React, {useEffect} from "react";
+import React from "react";
 import { useAuth } from "../../context/auth-context";
-import { useNavigate } from "react-router-dom";
 
 import "./Profile.css";
 
 function Profile() {
   const userDetails = JSON.parse(localStorage.getItem("loginCred"));
-  const {logOutHandler, token} = useAuth();
-  const navigate = useNavigate();
+  const {logOutHandler} = useAuth();
 
 
   return (
