@@ -36,3 +36,14 @@
     flex-wrap: wrap;
     gap: 2rem;
 }
+
+/* Media Query  */
+
+@media screen and (max-width: 800px) {
+    .single-playlist-wrapper{
+        margin: 1rem auto;
+    }
+    .playlist-wrapper{
+        margin: 1rem auto;
+    }
+}
