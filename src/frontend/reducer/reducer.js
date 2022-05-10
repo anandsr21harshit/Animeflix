@@ -32,6 +32,22 @@ export const dataReducer = (state, action) => {
                 ...state,
                 watchlater: payload
             }
+        case "ADD_PLAYLIST":
+            return {
+                ...state,
+                playlists: payload
+            }
+        case "ADD_VIDEO_TO_PLAYLIST":
+           
+            // use reducer to create new playlist so that state will change
+            const newPlaylist = state.playlists.reduce((acc,curr)=>{
+                return payload._id === curr._id ? [...acc, payload] : [...acc,curr]
+            },[])
+
+        return {
+            ...state,
+            playlists: newPlaylist
+        };
         default:
             return state;
     }
