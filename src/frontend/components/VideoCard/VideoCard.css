@@ -55,8 +55,13 @@
 
 .ReactModal__Content section{
   display: flex;
-  align-items: center;
   gap: 0.5rem;
+  flex-direction: column;
+}
+.ReactModal__Content section > div{
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
 }
 
 .ReactModal__Content main{
