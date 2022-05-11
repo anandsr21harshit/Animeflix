@@ -18,3 +18,10 @@
     display: flex;
     gap: 1rem;
 }
+
+@media screen and (max-width: 420px) {
+    .custom-modal{
+        top:9rem;
+        left: 6rem;
+    }
+}

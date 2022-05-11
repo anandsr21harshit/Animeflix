@@ -4,7 +4,7 @@
 }
 
 .profile{
-    min-width: 25rem;
+    width: 25rem;
     height: 25rem;
     background-color: var(--primary-bg-color);
     display: flex;
@@ -36,4 +36,20 @@
 .profile-details p{
     font-size: 1.3rem;
     font-weight: bold;
+}
+
+/* Media Query  */
+
+@media screen and (max-width:420px) {
+    .profile{
+        width: 20rem;
+        height: 18rem;
+    }
+    .profile-details{
+        margin-top: 1rem;  
+    }
+
+    .profile-details p {
+        font-size: 1rem;
+    }
 }
