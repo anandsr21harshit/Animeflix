@@ -16,6 +16,7 @@ import {
 import { Route, Routes } from "react-router-dom";
 import { useAuth } from "./frontend/context/auth-context";
 import RequiresAuth from "./frontend/components/RequiresAuth";
+import Signup from "./frontend/pages/SignUp/Signup";
 
 function App() {
   const { token } = useAuth();
@@ -73,6 +74,7 @@ function App() {
             </RequiresAuth>
           }
         />
+        <Route path="/signup" element={<Signup/>}></Route>
         <Route path="/home" element={<HomePage />}></Route>
         <Route path="/home/:videoID" element={<Stream />}></Route>
         <Route path="/" element={<LandingPage />}></Route>
