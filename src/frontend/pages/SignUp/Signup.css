@@ -1,0 +1,37 @@
+.signup-form{
+    gap:0rem;
+}
+
+.signup-form .form-footer{
+    margin-top: 2rem;
+}
+
+.signup-form .login-item div{
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+}
+
+.signup-form .login-item input{
+    width: 90%;
+}
+
+/* Media Query */
+
+@media screen and (max-width: 420px) {
+    .signup-form{
+        min-width: 20rem;
+    }
+    .signup-form h1{
+        font-size: 2rem;
+    }
+    .signup-form .login-item {
+        font-size: 0.8rem;
+    }
+    .signup-form .login-item input{
+        height: 1.2rem;
+    }
+    .signup-form .form-footer button {
+        font-size: 0.8rem;
+    }
+}
