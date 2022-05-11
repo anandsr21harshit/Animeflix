@@ -30,7 +30,7 @@
 .video-options{
     display: flex;
     justify-content: space-between;
-    row-gap: 1rem;
+    gap: 1rem;
     min-width: 15rem;
 }
 
