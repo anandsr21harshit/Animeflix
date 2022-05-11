@@ -63,5 +63,17 @@ export const videos = [
     title: "Dragon Ball Z",
     videoUrl:"https://youtu.be/_qNmE0xQgfI",
     category:"Action"
+  },
+  {
+    _id: "YzuJnyebc40",
+    title: "Psycho-Pass",
+    videoUrl: "https://youtu.be/YzuJnyebc40",
+    category: "Crime"
+  },
+  {
+    _id: "zKKLZRutbiI",
+    title: "Great Pretender",
+    videoUrl: "https://youtu.be/zKKLZRutbiI",
+    category: "Crime"
   }
 ];
