@@ -1,5 +1,4 @@
 import "./App.css";
-import { useEffect } from "react";
 import NavBar from "./frontend/components/NavBar/NavBar";
 import {
   LandingPage,
@@ -10,11 +9,14 @@ import {
   Playlist,
   Like,
   Watchlater,
+  Profile,
+  SinglePlaylist,
+  NotFound
 } from "./frontend/pages";
-import { Route, Routes, useLocation } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import { useAuth } from "./frontend/context/auth-context";
 import RequiresAuth from "./frontend/components/RequiresAuth";
-
+import Signup from "./frontend/pages/SignUp/Signup";
 
 function App() {
   const { token } = useAuth();
@@ -29,6 +31,14 @@ function App() {
           element={
             <RequiresAuth token={token}>
               <Playlist />
+            </RequiresAuth>
+          }
+        ></Route>
+        <Route
+          path="/playlist/:playlistID"
+          element={
+            <RequiresAuth token={token}>
+              <SinglePlaylist />
             </RequiresAuth>
           }
         ></Route>
@@ -56,9 +66,19 @@ function App() {
             </RequiresAuth>
           }
         ></Route>
+        <Route
+          path="/profile"
+          element={
+            <RequiresAuth token={token}>
+              <Profile />
+            </RequiresAuth>
+          }
+        />
+        <Route path="/signup" element={<Signup/>}></Route>
         <Route path="/home" element={<HomePage />}></Route>
         <Route path="/home/:videoID" element={<Stream />}></Route>
         <Route path="/" element={<LandingPage />}></Route>
+        <Route path="*" element={<NotFound/>}/>
       </Routes>
     </div>
   );

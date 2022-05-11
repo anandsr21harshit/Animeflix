@@ -9,9 +9,23 @@ import { useAuth } from "../../context/auth-context.js";
 function Stream() {
   const { videoID } = useParams();
   const navigate = useNavigate();
-  const { state, addToLikedVideos,addToHistory, deleteFromLikedVideos } = useData();
+  const { state, addToLikedVideos,addToHistory, deleteFromLikedVideos,removeFromWatchLater,addToWatchLater } = useData();
   const { videos } = state;
   const { token } = useAuth();
+
+  const inWatchLater = state.watchlater.some(video => video._id === videoID)   // true or false
+
+  function watchLaterHandler(video) {
+    if (token) {
+      if (state.watchlater.some((watched) => watched._id === video._id)) {
+        removeFromWatchLater(video._id);
+      } else {
+        addToWatchLater(video);
+      }
+    } else {
+      navigate("/login");
+    }
+  }
 
   function findVideo(id) {
     const currentVideo = videos.find((video) => video._id === id);
@@ -75,8 +89,10 @@ function Stream() {
                     ? "Liked"
                     : "Like"}
                 </span>
-                <span>
-                  <i className="bi bi-music-note-list"></i>Add to Playlist
+                <span onClick={() => watchLaterHandler(playingVideo)}>
+                <i className="bi bi-clock-fill"></i>
+                {!inWatchLater && "Watch Later"}
+                {inWatchLater && "Remove from Watch later"}
                 </span>
               </div>
             </div>

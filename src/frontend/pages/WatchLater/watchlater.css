@@ -13,6 +13,10 @@
     gap: 2rem;
 }
 
+.video-wrapper h1{
+    padding: 1rem;
+}
+
 @media screen and (max-width: 800px) {
     .video-wrapper{
         margin: 1rem auto;

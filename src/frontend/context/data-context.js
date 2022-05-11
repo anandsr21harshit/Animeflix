@@ -12,7 +12,8 @@ const initialState = {
   category: "All", // for filtering
   likedVideos: [],
   history: [],
-  watchlater: []
+  watchlater: [],
+  playlists: [],
 };
 
 const DataProvider = ({ children }) => {
@@ -144,28 +145,111 @@ const DataProvider = ({ children }) => {
           },
         }
       );
-      if(response.status === 201){
-        dispatch({type:"SET_WATCH_LATER", payload: response.data.watchlater})
+      if (response.status === 201) {
+        dispatch({
+          type: "SET_WATCH_LATER",
+          payload: response.data.watchlater,
+        });
       }
-    } catch(error) {
+    } catch (error) {
       console.error(error.response);
     }
   }
 
-  async function removeFromWatchLater(videoID){
+  async function removeFromWatchLater(videoID) {
+    try {
+      const response = await axios.delete(`/api/user/watchlater/${videoID}`, {
+        headers: {
+          authorization: token,
+        },
+      });
+
+      if (response.status === 200) {
+        dispatch({
+          type: "SET_WATCH_LATER",
+          payload: response.data.watchlater,
+        });
+      }
+    } catch (error) {
+      console.error(error.response);
+    }
+  }
+
+  async function createPlaylist(playlistName) {
+    try {
+      const response = await axios.post(
+        "/api/user/playlists",
+        {
+          playlist: {
+            title: playlistName,
+            description: "",
+          },
+        },
+        {
+          headers: {
+            authorization: token,
+          },
+        }
+      );
+      if (response.status === 201) {
+        dispatch({ type: "ADD_PLAYLIST", payload: response.data.playlists });
+      }
+    } catch (err) {
+      console.error(err.response);
+    }
+  }
+
+  async function addVideoToPlaylist(video, playlistID) {
+    try {
+      const response = await axios.post(
+        `/api/user/playlists/${playlistID}`,
+        {
+          video,
+        },
+        {
+          headers: {
+            authorization: token,
+          },
+        }
+      );
+      if(response.status === 201){
+        dispatch({type:"ADD_VIDEO_TO_PLAYLIST", payload: response.data.playlist});
+      }
+    } catch (error) {
+      console.error(error.response);
+    }
+  }
+
+  async function deletePlaylist(playlistID){
     try{
-      const response = await axios.delete(`/api/user/watchlater/${videoID}`,{
+      const response = await axios.delete(`/api/user/playlists/${playlistID}`,{
         headers: {
           authorization: token
         }
       })
-
       if(response.status === 200){
-        dispatch({type:"SET_WATCH_LATER", payload: response.data.watchlater})
+        dispatch({ type: "ADD_PLAYLIST", payload: response.data.playlists });
       }
     }
-    catch(error){
-      console.error(error.response);
+    catch(err){
+      console.error(err.response);
+    }
+  }
+
+  async function deleteVideoFromPlaylist(videoID, playlistID){
+    try{
+      const response = await axios.delete(`/api/user/playlists/${playlistID}/${videoID}`,{
+        headers:{
+          authorization: token
+        }
+      })
+
+      if(response.status===200){
+        dispatch({type:"ADD_VIDEO_TO_PLAYLIST", payload: response.data.playlist});
+      }
+    }
+    catch(err){
+      console.error(err.response);
     }
   }
 
@@ -180,7 +264,11 @@ const DataProvider = ({ children }) => {
         deleteFromHistory,
         deleteAllFromHistory,
         addToWatchLater,
-        removeFromWatchLater
+        removeFromWatchLater,
+        createPlaylist,
+        addVideoToPlaylist,
+        deletePlaylist,
+        deleteVideoFromPlaylist
       }}
     >
       {children}

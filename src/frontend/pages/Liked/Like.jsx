@@ -11,13 +11,13 @@ function Like() {
   return (
     <div className="like-page-container">
       <SideBar></SideBar>
-      <div className="video-wrapper">
+      <section className="video-wrapper">
         {likedVideos.length === 0 && <h1>You haven't liked any video yet</h1>}
         {likedVideos.length > 0 &&
           likedVideos.map((video) => {
             return <VideoCard {...video} key={video._id} />;
           })}
-      </div>
+      </section>
     </div>
   );
 }

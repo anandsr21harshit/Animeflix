@@ -19,7 +19,7 @@ function NavBar() {
         <ul className="menus">
           <li className="menu">
             {!token && <Link to={"/login"}> <button className="btn btn-primary nav-btn">Login</button> </Link>}
-            {token && <i className="bi bi-person-circle"></i>}
+            {token && <Link to={"/profile"}><i className="bi bi-person-circle"></i></Link>}
           </li>
         </ul>
       </nav>
